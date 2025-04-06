@@ -4,8 +4,11 @@ import MovieCard from "./components/MovieCard";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [hasSearched, setHasSearched] = useState(false);
+
   const handleSearchResults = (results) => {
     setMovies(results);
+    setHasSearched(true);
   };
 
   return (
@@ -22,9 +25,11 @@ function App() {
             ))}
           </div>
         ) : (
-          <div className="no-results">
-            <p>No movies found.</p>
-          </div>
+          hasSearched && (
+            <div className="no-results">
+              <p>No movies found.</p>
+            </div>
+          )
         )}
       </main>
     </div>
