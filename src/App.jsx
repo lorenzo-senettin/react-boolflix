@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchBar from "./components/SearchBar";
+import MovieCard from "./components/MovieCard";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -17,18 +18,7 @@ function App() {
         {movies.length > 0 ? (
           <div className="movies-grid">
             {movies.map((movie) => (
-              <div key={movie.id} className="movie-card">
-                <h2>{movie.title}</h2>
-                <p>
-                  <strong>Original title:</strong> {movie.original_title}
-                </p>
-                <p>
-                  <strong>Language:</strong> {movie.original_language}
-                </p>
-                <p>
-                  <strong>Vote:</strong> {movie.vote_average}
-                </p>
-              </div>
+              <MovieCard key={movie.id} movie={movie} />
             ))}
           </div>
         ) : (
