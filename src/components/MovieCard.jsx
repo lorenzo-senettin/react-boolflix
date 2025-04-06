@@ -15,9 +15,13 @@ const getCountryCode = (language) => {
 
 const MovieCard = ({ movie }) => {
   const countryCode = getCountryCode(movie.original_language);
+  const imageUrl = movie.poster_path
+    ? `https://image.tmdb.org/t/p/w342${movie.poster_path}`
+    : "https://via.placeholder.com/342x513?text=No+Image";
 
   return (
     <div className="movie-card">
+      <img src={imageUrl} alt={movie.title} />
       <h2>{movie.title}</h2>
       <p>
         <strong>Original title:</strong> {movie.original_title}
