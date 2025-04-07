@@ -42,24 +42,29 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div className="movie-card">
-      <img src={imageUrl} alt={movie.title} />
-      <h2>{movie.title}</h2>
-      <p>
-        <strong>Original title:</strong> {movie.original_title}
-      </p>
-      <p>
-        <strong>Language:</strong>{" "}
-        <ReactCountryFlag
-          countryCode={countryCode}
-          svg
-          style={{ width: "1.5em", height: "1.5em" }}
-          title={countryCode}
-        />
-      </p>
-      <p>
-        <strong>Vote:</strong> {movie.vote_average}
-      </p>
-      <div className="star-rating">{stars}</div>
+      <div className="card-container">
+        <img src={imageUrl} alt={movie.title} />
+        <h2>{movie.title}</h2>
+        <p>
+          <strong>Original title:</strong> {movie.original_title}
+        </p>
+        <p>
+          <strong>Language:</strong>{" "}
+          <ReactCountryFlag
+            countryCode={countryCode}
+            svg
+            style={{ width: "1.5em", height: "1.5em" }}
+            title={countryCode}
+          />
+        </p>
+        <p>
+          <strong>Vote:</strong> {movie.vote_average}
+        </p>
+        <div className="star-rating">{stars}</div>
+      </div>
+      <div className="card-overlay">
+        <p>{movie.overview}</p>
+      </div>
     </div>
   );
 };
