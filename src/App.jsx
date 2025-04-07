@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <h1>BoolFlix</h1>
+        <img className="header-logo" src="BoolFlix-logo.png" alt="boolflix" />
         <SearchBar onResults={handleSearchResults} />
       </header>
       <main>
