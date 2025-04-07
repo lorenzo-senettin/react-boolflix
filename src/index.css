@@ -73,7 +73,7 @@ button {
 }
 
 .movie-card h2 {
-  font-size: 1.2em;
+  font-size: 1.5rem;
   margin-bottom: 5px;
 }
 
@@ -88,5 +88,34 @@ button {
 .no-results {
   text-align: center;
   margin-top: 20px;
-  font-size: 1.2em;
+  font-size: 1.5rem;
+}
+
+.movie-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000d7;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  padding: 15px;
+}
+
+.movie-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.movie-card:hover .card-content {
+  opacity: 0;
 }
