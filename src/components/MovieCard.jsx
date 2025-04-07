@@ -19,6 +19,27 @@ const MovieCard = ({ movie }) => {
     ? `https://image.tmdb.org/t/p/w342${movie.poster_path}`
     : "https://via.placeholder.com/342x513?text=No+Image";
 
+  const voteAverage = movie.vote_average || 0;
+  const rating = Math.ceil(movie.vote_average / 2);
+  const totalStars = 5;
+  const stars = [];
+
+  for (let i = 0; i < totalStars; i++) {
+    stars.push(
+      <img
+        key={i}
+        src="/star.svg"
+        alt="star"
+        style={{
+          width: "20px",
+          height: "20px",
+          marginRight: "2px",
+          filter: i < rating ? "none" : "grayscale(100%)",
+        }}
+      />
+    );
+  }
+
   return (
     <div className="movie-card">
       <img src={imageUrl} alt={movie.title} />
@@ -38,6 +59,7 @@ const MovieCard = ({ movie }) => {
       <p>
         <strong>Vote:</strong> {movie.vote_average}
       </p>
+      <div className="star-rating">{stars}</div>
     </div>
   );
 };
